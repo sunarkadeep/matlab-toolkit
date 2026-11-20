@@ -14,7 +14,7 @@ For example, the polynomial ${}3x^3 - 5x + 7{}$ is represented as
 P = [3, 0, -5, 7];
 ```
 
-## Common Functions
+## 1. Common Functions
 | Function | Syntax              | Description                                                                                                                                                                                      |
 | -------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | roots    | `r = roots(P);`     | Finds the roots / zeroes of the polynomial                                                                                                                                                       |
@@ -23,7 +23,7 @@ P = [3, 0, -5, 7];
 | polyder  | `dP = polyder(P);`  | Finds the derivative of the polynomial                                                                                                                                                           |
 | polyint  | `iP = polyint(P);`  | Finds the integral of the polynomial                                                                                                                                                             |
 
-## Curve Fitting - polyfit
+## 2. Curve Fitting - polyfit
 Say, there are two vectors `x,y` of same length. To find a smooth polynomial curve that best-fits the vector coordinates, use `polyfit` . It uses the [least-squares method](https://en.wikipedia.org/wiki/Least_squares) in MATLAB.
 
 Syntax
@@ -52,7 +52,7 @@ x_ = -3 : 0.01 : 3;
 p_ = polyval(P,x_);
 plot(x_,p_);
 ```
-## Overfitting and Underfitting
+## 3. Overfitting and Underfitting
 When choosing the degree `n` while fitting a real world noisy data, striking the right balance is crucial. Choosing a low value of `n` fails to capture the true trend, causing Underfitting. Choosing a too high value of `n` causes an overly oscillating trend - Overfitting.
 
 

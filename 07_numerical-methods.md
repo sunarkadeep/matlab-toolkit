@@ -1,4 +1,4 @@
-# Anonymous Functions
+# 1. Anonymous Functions
 In MATLAB, to define mathematical functions without needing to create separate `.m` file, anonymous function using the `@` operator is used.
 
 Syntax - `f = @(args) expression`
@@ -19,7 +19,7 @@ f1 = log(x);
 f = inline(f1);
 ```
 
-# Numerical Differentiation
+# 2. Numerical Differentiation
 **Forward Difference**  
 $$
 f'(x) = \frac{ f(x+h) - f(x) }{ h}
@@ -43,7 +43,7 @@ fwd_diff = (f(x+h) - f(x))/h; %forward difference
 bwd_diff = (f(x) - f(x-h))/h; %backward difference
 ctr_diff = (f(x+h) - f(x-h))/ (2*h); %central difference
 ```
-# Numerical Integration
+# 3. Numerical Integration
 ## Trapezoidal Rule
 Given,
 - `f = @(x) expression` - integrand
@@ -96,7 +96,7 @@ end
 result = (h/3) * ( fi + 4 * odd_sum + 2 * even_sum);
 ```
 
-# Solving ODEs
+# 4. Solving ODEs
 MATLAB provides built in functions like `ode23`, `ode45` to solve ordinary differential equations
 - `ode23` is used for integration over small intervals
 - `ode45` uses methods like *Runge Kutta Method*
@@ -116,7 +116,7 @@ y0 = constant;
 ```
 here, `[t,y]` tells MATLAB to store the outputs in two separate columns, thereby making plotting easier later on.
 
-# Root Finding
+# 5. Root Finding
 ## Bisection Method
 Given,
 - `f` - the function

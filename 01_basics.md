@@ -1,4 +1,4 @@
-# MATLAB Foundations
+# MATLAB Fundamentals
 
 ## 1. Syntax Basics & Code Structure
 
@@ -23,7 +23,7 @@ Comments explain code logic and are ignored during execution.
   It spans across multiple lines.
   %}
   ```
-* **Code Blocks / Sections:** Use double percent signs (`%%`). This creates foldable sections that can be executed independently (`Ctrl + Enter`).
+* **Code Blocks / Sections:** Use double percent signs (`%%`).  
   ```matlab
   %% Block 1: Variable Definition
   a = 2;
@@ -36,16 +36,14 @@ Comments explain code logic and are ignored during execution.
   disp(c + d);
   ```
 
----
-
 ## 2. Variables & Data Types
 
 ### Variable Initialization
 MATLAB does **not** require explicit variable type declarations. Assigning a value creates the variable dynamically.
 
 ```matlab
-x = 42;             % Defaults to 64-bit double
-name = 'MATLAB';    % 16-bit character array
+x = 42;             % Defaults to double
+name = 'MATLAB';    % character array
 ```
 
 ### Naming Rules & Conventions
@@ -56,14 +54,13 @@ name = 'MATLAB';    % 16-bit character array
 ### Reserved / Built-in Constants
 Avoid overwriting built-in constants with custom variable names: 
 
-| Constant      | Description                                                              | Example Output       |
-| :------------ | :----------------------------------------------------------------------- | :------------------- |
-| `ans`         | Stores the result of the last unassigned expression                      | `2 + 3` => `ans = 5` |
-| `pi`          | Mathematical constant $\pi \approx 3.14159$                              | `3.1416`             |
-| `i`, `j`      | Imaginary unit $\sqrt{-1}$ (can be used as loop variables if reassigned) | `0.0000 + 1.0000i`   |
-| `Inf`, `-Inf` | Positive / Negative Infinity (e.g., division by zero)                    | `1 / 0` => `Inf`     |
-| `NaN`         | "Not a Number" (undefined numerical operations)                          | `0 / 0` => `NaN`     |
-
+| Constant      | Description                                                                       | Example Output              |
+| :------------ | :-------------------------------------------------------------------------------- | :-------------------------- |
+| `ans`         | Stores the result of the last unassigned expression                               | `2 + 3` ${}\to{}$ `ans = 5` |
+| `pi`          | Mathematical constant ${}\pi{}$                                                   | `3.1416`                    |
+| `i`, `j`      | Imaginary unit $\sqrt{-1}$ (*though* can be used as loop variables if reassigned) | `0.0000 + 1.0000i`          |
+| `Inf`, `-Inf` | Positive / Negative Infinity (e.g., division by zero)                             | `1 / 0` ${}\to{}$ `Inf`     |
+| `NaN`         | "Not a Number" (undefined numerical operations)                                   | `0 / 0` ${}\to{}$ `NaN`     |
 ### Common Data Types
 
 * **64-bit double** (default numerical type for decimal/integer values)
@@ -72,9 +69,6 @@ Avoid overwriting built-in constants with custom variable names:
 * **Complex numbers** (e.g., `z = (2+1i)*(1+3i)`)
 * **Symbolic objects** (used for algebraic manipulation)
 * **Integers** (8-bit, 16-bit, 32-bit, 64-bit signed/unsigned)
-
----
-
 ## 3. Vector & Matrix Operations
 
 MATLAB (Matrix Laboratory) treats almost all variables as arrays.
@@ -139,9 +133,13 @@ z_trans      = z.'   % Result: [1+2i; 3-4i]
 
 % For purely real numbers, z' and z.' produce identical output.
 ```
-
----
-
+### Some matrix operations
+- **Rank of a matrix:** use `rank(x)`
+- **Determinant:** use `det(x)`
+- **Inverse of a matrix:** use `inv(x)`
+- **Eigen Values and Eigen Vectors:** 
+	- `e = eig(x);` returns a column vector of eigenvalues
+	- `[V,D] = eig(x);` returns a diagonal matrix `D` of eigenvalues and matrix `V` whose columns are the corresponding eigen vectors.
 ## 4. Built-in Mathematical Functions
 
 All mathematical functions operate element-wise when applied to arrays.
@@ -158,8 +156,6 @@ All mathematical functions operate element-wise when applied to arrays.
 |                       | `atan(x)`  |
 | **Complex Math**      | `abs(z)`   |
 |                       | `angle(z)` |
-
----
 
 ## 5. Statistical & Summary Functions
 
@@ -180,8 +176,6 @@ sorted_A = sort(A, 'ascend'); % Sorts each column in ascending order
 sorted_A = sort(A, 'descend'); % Sorts each column in descending order
 ```
 
----
-
 ## 6. Text Handling & Conversion
 
 ### Output Display (`disp`)
@@ -194,8 +188,6 @@ disp('Hello World');
 val = 42;
 disp(['The result is: ', num2str(val)]);
 ```
-
----
 
 ## 7. Date, Time & System Commands
 
@@ -231,8 +223,6 @@ doc sin                     % Opens full help manual in separate window
 docsearch sin trigonometric % Searches official documentation by keywords
 ```
 
----
-
 ## 8. Working with M-File Scripts
 
 A script is a text file containing a sequence of MATLAB commands. Scripts are saved with the extension `.m`.
@@ -245,23 +235,76 @@ A script is a text file containing a sequence of MATLAB commands. Scripts are sa
 * **Variable Scope:** All variables created or modified inside a script remain active in the base workspace after execution finishes.
 * Execute a script by typing its file name (without `.m`) into the Command Window.
 
----
+## 9. Relational Operators
 
-## 9. Basic Data Visualization
+- `==` - equal to 
+- `~=` - not equal to 
+- `>` - greater than 
+- `<` - less than 
+- `>=` - greater than or equal to 
+- `<=` - less than or equal to
+## 10. Logical Operators
 
-Plotting data using simple bar charts and adding annotations:
+- `&` - operates on scalars, vectors, and matrices; used for element-wise logical AND 
+- `&&` - operates only on scalars; used for conditional checks in `if-else` and loops 
+- `|` - operates on scalars, vectors, and matrices; used for element-wise logical OR 
+- `||` - operates only on scalars; used for conditional checks in `if-else` and loops 
+- `~` - used for logical NOT operation 
+- `xor` - used for logical Exclusive OR (XOR)
+- `all` - returns logical `1` (true) or `0` (false) depending on whether the condition is true for all elements; Syntax `x = all(condition)` {x is either 0 or 1}
+- `any` - returns logical `1` (true) or `0` (false) depending on whether the condition is true for at least one element; Syntax `x = any(condition)` {x is either 0 or 1}
 
+## 11. If-Else
+Used in conditional logic flow, evaluates from top to bottom.
 ```matlab
-% Sample Data
-temperatures = [22, 25, 28, 24, 21];
+if condition_one
+    command_one
 
-% Generate Bar Chart
-figure;
-bar(temperatures);
+elseif condition_two
+    command_two
 
-% Add Labels and Formatting
-xlabel('Day of Week');
-ylabel('Temperature (°C)');
-title('Weekly Temperature Variance');
-grid on;
+else
+    command_three
+end
 ```
+*NOTE - `NaN` is treated as `false` in conditional check*
+## 12. Loops
+Used to repeat a block of commands for either 
+- a set number of iterations - `for` loop
+- as long as a condition is met - `while` loop
+
+**FOR loop**
+```matlab
+for index = values
+    commands
+end
+```
+**WHILE loop**
+```matlab
+while condition
+    commands
+end
+```
+## 13. Special Commands
+### `find` command
+Returns an array of indices where the elements satisfy the given condition. Returns an empty array `[]` if none satisfies the condition.
+```matlab
+x = [1,3,5,2,4,6];
+
+idx = find(x>3); 
+% idx = [3 5 6]
+
+[row, col] = find(x>3);  
+```
+### Random Numbers
+Used to generate random numbers between a specified range. The following commands are generally used - 
+- `rand` 
+	- `x = rand;` returns a single random decimal number between 0 and 1
+	- `x = rand(m);` returns an `m x nm matrix, each a single random decimal number between 0 and 1
+	- `x = rand(m,n);` returns an `m x n` matrix, each a single random decimal number between 0 and 1
+- `randn` - same as `rand` in terms of arguments passed; but `randn` returns any random number between ${}- \infty{}$  to ${}\infty{}$, with mean at 0, thereby values cluster near 0 and taper off on either side.
+- `randi` - returns a random integer
+	- `x = randi(m);` between 1 and m (inclusive)
+	- `x = randi([p,q]);` between p and q (both inclusive)
+	- `x = randi(m, a, b);` returns an `a x b` matrix each with random integer between 1 and m (inclusive)
+

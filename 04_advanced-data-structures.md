@@ -1,14 +1,14 @@
 # Cell Array
 An `array` in MATLAB can contain a single type of data, whereas a `Cell Array` can hold multiple data types. 
 
-## Defining a Cell Array
+## 1. Defining a Cell Array
 It is done the same way a normal array is done, just instead of `[ ]` use `{ }` for cell arrays.
 For example,
 ```matlab
 myCell = { 'Apple',67,[4 5 6]; 'Orange',logical(0),pi};
 ```
 generates a `2x3` cell in workspace.
-## Fetching a Cell Array content
+## 2. Fetching a Cell Array content
 ### In Cell format
 To get a particular cell element in the form of a `1x1` cell, use `cellName(x,y)` where x is the row number and y is the column number of that specific element.
 For example,
@@ -33,7 +33,7 @@ For example,
 ```matlab
 celldisp(myCell);
 ```
-## Utility Functions
+## 3. Utility Functions
 
 | Function     | Syntax                      | Description                                                                                                  |
 | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -43,7 +43,7 @@ celldisp(myCell);
 # Structures
 In MATLAB, a structure is a data type that stores data in containers called `fields`. Each field can hold any data type and is referenced by the `fieldName` rather than index number.
 
-## Declaring a structure
+## 1. Declaring a structure
 ### Empty Initialization
 
 ```matlab
@@ -60,7 +60,7 @@ structName = struct('fieldName1','data1','fieldName2','data2');
 **BOTH the methods create the same struct in workspace**
 Empty initialization is preferred for larger structures.
 
-## Accessing structure content
+## 2. Accessing structure content
 ### Read a field value
 ```matlab
 structOutput = structName.fieldName1;
@@ -73,7 +73,7 @@ structName.fieldName1 = 'newData';
 ```matlab
 structName.fieldName3 = 'data3';
 ```
-## Structure Arrays
+## 3. Structure Arrays
 In MATLAB, an array of structure can be created to store multiple rows of data for the same structure.
 ### Initialization
 ```matlab
@@ -86,7 +86,7 @@ this adds the second row of data to the same `structName` which now becomes a `1
 ```matlab
 structName(index).fieldName
 ```
-## Utility Functions
+## 4. Utility Functions
 
 | Function       | Syntax                                          | Description                                                                                        |
 | -------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------- |

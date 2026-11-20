@@ -1,7 +1,7 @@
 # Excel in MATLAB
 MATLAB provides built-in functions to write and read from Microsoft Excel spreadsheets (`.xls` and `.xlsx`).
 
-## Writing Data
+## 1. Writing Data
 Use the function `xlswrite()`. Syntax is as follows,
 ```matlab
 xlswrite('fileName',randn(10),'sheetName','C6:C15');
@@ -14,7 +14,7 @@ here,
 
 *Sheet name and Range are Optional*
 
-## Reading Data
+## 2. Reading Data
 Use the function `xlsread()`. Syntax is as follows,
 ```matlab
 [num, txt, raw] = xlsread('fileName.xlsx', 'sheetName', range);
