@@ -140,6 +140,7 @@ z_trans      = z.'   % Result: [1+2i; 3-4i]
 - **Eigen Values and Eigen Vectors:** 
 	- `e = eig(x);` returns a column vector of eigenvalues
 	- `[V,D] = eig(x);` returns a diagonal matrix `D` of eigenvalues and matrix `V` whose columns are the corresponding eigen vectors.
+	- NOTE - the `x` matrix must be a square matrix.
 ## 4. Built-in Mathematical Functions
 
 All mathematical functions operate element-wise when applied to arrays.
@@ -157,7 +158,7 @@ All mathematical functions operate element-wise when applied to arrays.
 | **Complex Math**      | `abs(z)`   |
 |                       | `angle(z)` |
 
-## 5. Statistical & Summary Functions
+## 5. Statistical & Sorting Functions
 
 Applied to a 2D matrix `A`, functions like `sum()`, `mean()`, `max()`, and `min()` process data **column-by-column**:
 
