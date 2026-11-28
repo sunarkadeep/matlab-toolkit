@@ -24,14 +24,17 @@ f = inline(f1);
 $$
 f'(x) = \frac{ f(x+h) - f(x) }{ h}
 $$
+
 **Backward Difference**
 $$
 f'(x) = \frac{ f(x) - f(x-h)}{h}
 $$
+
 **Central Difference**
 $$
 f'(x) = \frac{ f(x+h) - f(x-h)}{2h}
 $$
+
 For example,
 ```matlab
 f = @(x) x.^3;
