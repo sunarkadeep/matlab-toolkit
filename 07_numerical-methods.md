@@ -21,16 +21,19 @@ f = inline(f1);
 
 # 2. Numerical Differentiation
 **Forward Difference**  
+
 $$
 f'(x) = \frac{ f(x+h) - f(x) }{ h}
 $$
 
 **Backward Difference**
+
 $$
 f'(x) = \frac{ f(x) - f(x-h)}{h}
 $$
 
 **Central Difference**
+
 $$
 f'(x) = \frac{ f(x+h) - f(x-h)}{2h}
 $$
