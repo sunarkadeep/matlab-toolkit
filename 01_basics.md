@@ -157,7 +157,7 @@ All mathematical functions operate element-wise when applied to arrays.
 |                       | `atan(x)`  |
 | **Complex Math**      | `abs(z)`   |
 |                       | `angle(z)` |
-
+*NOTE : `angle(z)` returns the value in radians. Use `rad2deg()` to convert to degrees.*
 ## 5. Statistical & Sorting Functions
 
 Applied to a 2D matrix `A`, functions like `sum()`, `mean()`, `max()`, and `min()` process data **column-by-column**:
