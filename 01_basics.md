@@ -157,6 +157,7 @@ All mathematical functions operate element-wise when applied to arrays.
 |                       | `atan(x)`  |
 | **Complex Math**      | `abs(z)`   |
 |                       | `angle(z)` |
+
 *NOTE : `angle(z)` returns the value in radians. Use `rad2deg()` to convert to degrees.*
 ## 5. Statistical & Sorting Functions
 
@@ -175,6 +176,16 @@ m = mean(A);   % Returns column-wise averages: [2 3.5]
 % Sorting arrays
 sorted_A = sort(A, 'ascend'); % Sorts each column in ascending order
 sorted_A = sort(A, 'descend'); % Sorts each column in descending order
+```
+
+For a multi-dimensional array (matrix), the following is used,
+```matlab
+mean(A) % by default, column-wise
+mean(A, 1) % same as above, column-wise
+mean(A, 2) % row-wise
+mean(A, 'all') % considers all elements in the matrix
+
+%same goes for max(), min(), sum()
 ```
 
 ## 6. Text Handling & Conversion
