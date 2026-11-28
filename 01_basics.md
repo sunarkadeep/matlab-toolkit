@@ -320,3 +320,21 @@ Used to generate random numbers between a specified range. The following command
 	- `x = randi([p,q]);` between p and q (both inclusive)
 	- `x = randi(m, a, b);` returns an `a x b` matrix each with random integer between 1 and m (inclusive)
 
+## 14. Dimension Rules in MATLAB
+MATLAB follows the `top to down, then left to right` order while traversing a multi-dimensional array. That is why `column wise` (collapses all rows into one row times the number of columns) is **prioritized** over `row wise` (collapses all columns into one column times the number of rows).
+
+For example,
+```matlab
+A = [10,20,30 ; 40,50,60]; % say this be a matrix
+```
+
+| Linear Index | (row,column) | value in A |
+| ------------ | ------------ | ---------- |
+| 1            | (1,1)        | 10         |
+| 2            | (2,1)        | 40         |
+| 3            | (1,2)        | 20         |
+| 4            | (2,2)        | 50         |
+| 5            | (1,3)        | 30         |
+| 6            | (2,3)        | 60         |
+
+NOTE - `find()` returns the `linear index` 
